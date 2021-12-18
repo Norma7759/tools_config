@@ -1,0 +1,51 @@
+There are three configuration files for the git:
+1. /etc/gitconfig---for the system	use --system
+2. ~/.gitconfig---for the user		use --global
+3. .git/config---for the local directory	use --local
+
+NOTE that lower configuration will cover upper configurations
+
+
+First of all, set the user configurations:
+git config --global user.name "xxx"
+git config --global user.email xxxx@xxx.com
+git config --global core.editor vim
+
+git config --list 
+#show current configurations
+
+Enter the aim directory
+git init
+#initialize
+
+
+git add 
+git commit -m "xxx"
+git reset 
+git status
+git diff	#show the upgraded section
+git rm		#remove the track and the file
+git mv		#rename the file and track
+git log		#show the commit history
+
+use .gitignore file to remove the files we don't want to track, and the rules are:
+1. empty lines and lines begin with # will be ignored.
+2. standard glob model will be used to match and applied recursively in the whole workspace.
+3. '/' can be used at the begin to prevent recursion and at the end to appoint the directory.
+4. to ignore the files beyond our indication, use '!' 
+
+
+
+use the remote repository
+git remote -v	#show all remote repositories
+git remote add nickname url
+#set url as https://YOUR_TOKEN@github.com/owner/repo.git to avoid repeated inputof password
+git fetch url/nickname	#dont merge
+git pull url/nickname	#merge
+git push remote branch
+git remote show remote
+git remote rename
+git remote remove
+
+
+git tag	#show tags

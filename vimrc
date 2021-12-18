@@ -28,6 +28,7 @@ filetype plugin indent on
 "mouse
 "set mouse=a
 set encoding=utf-8
+scriptencoding utf-8
 "显示行号
 set number
 "显示相对行号
@@ -61,7 +62,7 @@ set autoindent
 set backspace=indent,eol,start
 "show chars
 set list
-set listchars=tab:>-,trail:-
+set listchars=tab:▣▪,trail:•
 "dir
 set autochdir
 "colorscheme

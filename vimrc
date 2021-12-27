@@ -62,7 +62,7 @@ set autoindent
 set backspace=indent,eol,start
 "show chars
 set list
-set listchars=tab:▣▪,trail:•
+set listchars=tab:→▪,trail:•
 "dir
 set autochdir
 "colorscheme

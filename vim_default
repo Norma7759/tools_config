@@ -17,19 +17,37 @@ ctrl-u  向上半页
 ctrl-f  向下一页
 ctrl-b  向上一页
 
-fx  向后找字符x 按；继续向后 按，向前
-Fx  向前找字符x
+/向后查找字符串
+？向前查找字符串	n N
 
-插入删除-----------------------
-x
-dd  ndd
-dw  dnw
+Ctrl-o	回到原来位置
+Ctrl-i	回到最新的位置
 
-o   下一行  O   上一行
+%	跳到对应的右括号处
 
+s/old/new<enter>	替换第一个匹配串
+s/old/new<enter>g	替换全行匹配串
+s/old/new<enter>gc	替换全文匹配串
+#,#s/old/new<enter>g	替换#-#行中的匹配串
 
+!	执行外部shell命令
 
-U   恢复该行的初始状态
+r file 复制file中的内容到光标后面  
 
-p   在当前行下方粘贴内容
+R 连续替换
+
+Ctrl-v 块选择
+I+输入+esc 批量头添加
+
+=	对齐文本
+
+J 合并当前行和下一行
+
+.重复上一步操作
+
+diw 删除单词
+di( 删除括号内内容
+da( 删除括号内内容及括号本身
+
+ciw，viw等同理
 

@@ -12,67 +12,6 @@ set guioptions-=r
 set guioptions-=R
 set guioptions-=m
 set guioptions-=T
-"高亮
-syntax enable
-syntax on
-"fold
-set foldmethod=indent
-set foldmethod=syntax
-"compatible
-set nocompatible
-"distinguish file
-filetype on
-filetype indent on
-filetype plugin on
-filetype plugin indent on
-"mouse
-"set mouse=a
-set encoding=utf-8
-scriptencoding utf-8
-"显示行号
-set number
-"显示相对行号
-set relativenumber
-"自动换行
-set wrap
-"在合适的位置换行
-set linebreak
-"tab菜单栏提示
-set wildmenu
-"cursor提醒
-set cursorline
-set cursorcolumn
-"show status
-set laststatus=2
-set ruler
-"高亮搜索
-set hlsearch
-"搜索完成后取消高亮
-exec "nohlsearch"
-"增强搜索
-set incsearch
-"ignore case
-set ignorecase
-"indent
-set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set autoindent
-set backspace=indent,eol,start
-"show chars
-set list
-set listchars=nbsp:¬,tab:··,trail:□
-"dir
-set autochdir
-"colorscheme
-colorscheme solarized
-set background=dark
-set scrolloff=5
-"open with latest cursor position
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
 "--------Common--------------------
 map q :q<CR>
 map <LEADER>e :e 

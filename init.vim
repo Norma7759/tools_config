@@ -17,6 +17,7 @@ set cursorcolumn
 set ruler	"实时位置
 set laststatus=2	"显示状态行
 set hlsearch	"搜索匹配高亮
+set foldenable "启用折叠
 
 "搜索完成后取消高亮	
 exec "nohlsearch" 
@@ -24,7 +25,6 @@ exec "nohlsearch"
 set incsearch	"增强搜索
 set ignorecase 	"大小写忽略
 set foldmethod=indent	"代码折叠
-set foldmethod=syntax
 set expandtab	"把tab替换为空格
 set shiftwidth=4	"替换成4个空格
 set autoindent	"自动缩进
@@ -35,6 +35,13 @@ set autochdir	"自动切换到当前文件的目录
 set scrolloff=5	"光标距离底部的行数
 set background=dark
 
+set gcr=a:block-blinkon0
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
+set guioptions-=m
+set guioptions-=T
 
 "打开文件时回到上一次停留的位置-------------
 if has("autocmd")

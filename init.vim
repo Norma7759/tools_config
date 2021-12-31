@@ -24,7 +24,7 @@ exec "nohlsearch"
 
 set incsearch	"增强搜索
 set ignorecase 	"大小写忽略
-set foldmethod=indent	"代码折叠
+set foldmethod=syntax "代码折叠
 set expandtab	"把tab替换为空格
 set shiftwidth=4	"替换成4个空格
 set autoindent	"自动缩进

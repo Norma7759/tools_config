@@ -74,6 +74,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'preservim/nerdtree'
 Plug 'mhinz/vim-startify'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'preservim/nerdcommenter'
+Plug 'junegunn/vim-easy-align'
 call plug#end()
 let g:airline_theme='moloai'
 let g:airline#extensions#tabline#enabled = 1

@@ -9,7 +9,6 @@ colorscheme monokai
 set encoding=utf-8	"编码
 set fenc=utf-8
 set nocompatible	"不兼容vi
-set paste	"粘贴不自动缩进
 set number	"绝对行号
 set rnu		"相对行号
 set wrap	"自动折行
@@ -69,8 +68,20 @@ call plug#begin(plug_address)
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sickill/vim-monokai'
+Plug 'Yggdroot/indentLine'
+Plug 'jiangmiao/auto-pairs'
+Plug 'easymotion/vim-easymotion'
+Plug 'preservim/nerdtree'
+Plug 'mhinz/vim-startify'
+Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
-
-
-let g:airline_theme='simple'
+let g:airline_theme='moloai'
 let g:airline#extensions#tabline#enabled = 1
+let g:indentLine_enabled = 1
+let g:AutoPairs = {'<':'>','(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''"}
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_concepts_highlight = 1
+let g:cpp_experimental_template_highlight = 1

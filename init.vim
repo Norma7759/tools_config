@@ -5,6 +5,7 @@ syntax on	"语法高亮
 syntax enable
 set lazyredraw
 set termguicolors  "真彩色
+colorscheme monokai
 set encoding=utf-8	"编码
 set fenc=utf-8
 set nocompatible	"不兼容vi
@@ -65,5 +66,11 @@ endif
 
 
 call plug#begin(plug_address)
-
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'sickill/vim-monokai'
 call plug#end()
+
+
+let g:airline_theme='simple'
+let g:airline#extensions#tabline#enabled = 1

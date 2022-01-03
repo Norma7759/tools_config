@@ -3,6 +3,8 @@ filetype indent on	"根据类型缩进
 filetype plugin on	"加载有关的脚本
 syntax on	"语法高亮
 syntax enable
+set lazyredraw
+set termguicolors  "真彩色
 set encoding=utf-8	"编码
 set fenc=utf-8
 set nocompatible	"不兼容vi
@@ -49,3 +51,19 @@ if has("autocmd")
 endif
 "-------------------------------------------
 
+
+
+"vim-plug for neovim------------------------
+"for linux: sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+"for windows: iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |` ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim" -Force
+
+if has ("win32")
+  let g:plug_address = '$HOME/AppData/Local/nvim/plugged'
+else
+  let g:plug_address = '~/.config/nvim/plugged'
+endif
+
+
+call plug#begin(plug_address)
+
+call plug#end()

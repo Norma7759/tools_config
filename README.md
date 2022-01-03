@@ -1,6 +1,6 @@
 Dependency:
 
-Vim-Plug
+Vim-Plug for neovim
 
 exuberant-ctags
 

@@ -77,7 +77,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'preservim/nerdcommenter'
 Plug 'junegunn/vim-easy-align'
 call plug#end()
-let g:airline_theme='moloai'
+let g:airline_theme='molokai'
 let g:airline#extensions#tabline#enabled = 1
 let g:indentLine_enabled = 1
 let g:AutoPairs = {'<':'>','(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''"}

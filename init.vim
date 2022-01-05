@@ -32,7 +32,6 @@ set shiftwidth=4	"替换成4个空格
 set autoindent	"自动缩进
 set backspace=indent,eol,start	"定义退格键的功能
 set list	"显示空白字符
-set listchars=nbsp:¬,tab:··,trail:□
 set autochdir	"自动切换到当前文件的目录
 set scrolloff=5	"光标距离底部的行数
 set background=dark

@@ -1,0 +1,5 @@
+*.exe
+!.gitignore
+*.DS_Store
+.vscode/
+*.dSYM/

@@ -16,14 +16,10 @@ set linebreak	"折行位置
 set wildmenu	"menu提示
 set cursorline	"定位
 set cursorcolumn
+set laststatus=0
 set ruler	"实时位置
-set laststatus=2	"显示状态行
 set hlsearch	"搜索匹配高亮
 set foldenable "启用折叠
-
-"搜索完成后取消高亮	
-exec "nohlsearch" 
-
 set incsearch	"增强搜索
 set ignorecase 	"大小写忽略
 set foldmethod=syntax "代码折叠
@@ -66,6 +62,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sickill/vim-monokai'
 Plug 'Yggdroot/indentLine'
+Plug 'bling/vim-bufferline'
 Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
 Plug 'preservim/nerdtree'
@@ -73,9 +70,15 @@ Plug 'mhinz/vim-startify'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'preservim/nerdcommenter'
 Plug 'junegunn/vim-easy-align'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
-let g:airline_theme='molokai'
-let g:airline#extensions#tabline#enabled = 1
+
+let g:airline_symbols_ascii = 1
+let g:airline#extensions#tabline#enabled = 0
+let g:airline_inactive_collapse=1
+let g:airline_statusline_ontop = 0
+let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:indentLine_enabled = 1
 let g:AutoPairs = {'<':'>','(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''"}
 let g:cpp_class_scope_highlight = 1

@@ -51,3 +51,8 @@ da( 删除括号内内容及括号本身
 
 ciw，viw等同理
 
+
+
+split (sp) 默认水平分屏
+
+vsplit (vs) 垂直分屏

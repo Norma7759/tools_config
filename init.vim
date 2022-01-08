@@ -9,6 +9,9 @@ colorscheme monokai
 set encoding=utf-8	"编码
 set fenc=utf-8
 set nocompatible	"不兼容vi
+set exrc
+set secure
+set hidden
 set number	"绝对行号
 set rnu		"相对行号
 set wrap	"自动折行
@@ -22,6 +25,7 @@ set hlsearch	"搜索匹配高亮
 set foldenable "启用折叠
 set incsearch	"增强搜索
 set ignorecase 	"大小写忽略
+set smartcase
 set foldmethod=syntax "代码折叠
 set expandtab	"把tab替换为空格
 set shiftwidth=4	"替换成4个空格
@@ -31,7 +35,6 @@ set list	"显示空白字符
 set autochdir	"自动切换到当前文件的目录
 set scrolloff=5	"光标距离底部的行数
 set background=dark
-
 set gcr=a:block-blinkon0
 set guioptions-=l
 set guioptions-=L

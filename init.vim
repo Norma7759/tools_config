@@ -47,8 +47,29 @@ set guioptions-=T
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
-"-------------------------------------------
+"键位设置---------------------------------------
+let mapleader = "\<space>"
+nnoremap g<leader> G
+nnoremap ss :w<CR>
+nnoremap q :q<CR>
 
+
+nnoremap sl :vs
+nnoremap sj :sp
+
+nnoremap gh <C-w>h
+nnoremap gl <C-w>l
+nnoremap gj <C-w>j
+nnoremap gk <C-w>k
+
+
+nnoremap la ^
+nnoremap lf $
+
+
+nnoremap bn :bn<CR>
+nnoremap bp :bp<CR>
+"-------------------------------------------
 "vim-plug for neovim------------------------
 "for linux: sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 "for windows: iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |` ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim" -Force
@@ -74,6 +95,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'preservim/nerdcommenter'
 Plug 'junegunn/vim-easy-align'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'neoclide/coc.nvim'
 call plug#end()
 
 let g:airline_symbols_ascii = 1
@@ -89,3 +111,17 @@ let g:cpp_class_decl_highlight = 1
 let g:cpp_posix_standard = 1
 let g:cpp_concepts_highlight = 1
 let g:cpp_experimental_template_highlight = 1
+
+" Start NERDTree. If a file is specified, move the cursor to its window.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+
+
+let g:coc_global_extensions = []
+
+

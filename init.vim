@@ -12,6 +12,9 @@ set nocompatible	"不兼容vi
 set exrc
 set secure
 set hidden
+set updatetime=100
+set shortmess+=c
+
 set number	"绝对行号
 set rnu		"相对行号
 set wrap	"自动折行
@@ -61,14 +64,20 @@ nnoremap gh <C-w>h
 nnoremap gl <C-w>l
 nnoremap gj <C-w>j
 nnoremap gk <C-w>k
+noremap <up> :res -5<CR>
+noremap <down> :res +5<CR>
+noremap <left> :vertical resize-5<CR>
+noremap <right> :vertical resize+5<CR>
 
 
-nnoremap la ^
-nnoremap lf $
+nnoremap <leader>h ^
+nnoremap <leader>l $
 
 
 nnoremap bn :bn<CR>
 nnoremap bp :bp<CR>
+nnoremap bw :bw<CR>
+nnoremap ba :badd
 "-------------------------------------------
 "vim-plug for neovim------------------------
 "for linux: sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -95,7 +104,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'preservim/nerdcommenter'
 Plug 'junegunn/vim-easy-align'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim',{'branch':'release'}
 call plug#end()
 
 let g:airline_symbols_ascii = 1
@@ -121,7 +130,54 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
-
-let g:coc_global_extensions = []
-
+let g:coc_global_extensions = ['coc-marketplace', 'coc-clangd', 'coc-clang-format-style-options', 'coc-cmake', 'coc-pyright']
+"Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-o> coc#refresh()
+else
+  inoremap <silent><expr> <c-o> coc#refresh()
+endif
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
+nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
+" GoTo code navigation.
+nnoremap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> gy <Plug>(coc-type-definition)
+nnoremap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent> gr <Plug>(coc-references)
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 

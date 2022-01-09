@@ -53,9 +53,7 @@ endif
 "键位设置---------------------------------------
 let mapleader = "\<space>"
 nnoremap g<leader> G
-nnoremap ss :w<CR>
 nnoremap q :q<CR>
-
 
 nnoremap sl :vs
 nnoremap sj :sp
@@ -70,8 +68,8 @@ noremap <left> :vertical resize-5<CR>
 noremap <right> :vertical resize+5<CR>
 
 
-nnoremap <leader>h ^
-nnoremap <leader>l $
+nnoremap g[ ^
+nnoremap g] $
 
 
 nnoremap bn :bn<CR>
@@ -155,8 +153,8 @@ else
 endif
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
-nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
+nnoremap <silent> <c-[> <Plug>(coc-diagnostic-prev)
+nnoremap <silent> <c-]> <Plug>(coc-diagnostic-next)
 " GoTo code navigation.
 nnoremap <silent> gd <Plug>(coc-definition)
 nnoremap <silent> gy <Plug>(coc-type-definition)

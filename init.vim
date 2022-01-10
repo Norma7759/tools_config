@@ -3,6 +3,8 @@ filetype indent on	"根据类型缩进
 filetype plugin on	"加载有关的脚本
 syntax on	"语法高亮
 syntax enable
+set ambiwidth=double
+set showmatch
 set lazyredraw
 set termguicolors  "真彩色
 colorscheme monokai
@@ -14,7 +16,6 @@ set secure
 set hidden
 set updatetime=100
 set shortmess+=c
-
 set number	"绝对行号
 set rnu		"相对行号
 set wrap	"自动折行
@@ -53,29 +54,21 @@ endif
 "键位设置---------------------------------------
 let mapleader = "\<space>"
 nnoremap g<leader> G
-nnoremap q :q<CR>
+nnoremap - <c-d>
+nnoremap = <c-u>
 
-nnoremap sl :vs
-nnoremap sj :sp
+nnoremap sl :vs 
+nnoremap sj :sp 
 
-nnoremap gh <C-w>h
-nnoremap gl <C-w>l
-nnoremap gj <C-w>j
-nnoremap gk <C-w>k
-noremap <up> :res -5<CR>
-noremap <down> :res +5<CR>
-noremap <left> :vertical resize-5<CR>
-noremap <right> :vertical resize+5<CR>
+noremap <leader><up> :res -5<CR>
+noremap <leader><down> :res +5<CR>
+noremap <leader><left> :vertical resize-5<CR>
+noremap <leader><right> :vertical resize+5<CR>
 
 
-nnoremap g[ ^
-nnoremap g] $
+nnoremap gh ^
+nnoremap gl $
 
-
-nnoremap bn :bn<CR>
-nnoremap bp :bp<CR>
-nnoremap bw :bw<CR>
-nnoremap ba :badd
 "-------------------------------------------
 "vim-plug for neovim------------------------
 "for linux: sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -93,7 +86,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sickill/vim-monokai'
 Plug 'Yggdroot/indentLine'
-Plug 'bling/vim-bufferline'
 Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
 Plug 'preservim/nerdtree'
@@ -102,33 +94,90 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'preservim/nerdcommenter'
 Plug 'junegunn/vim-easy-align'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'luochen1990/rainbow'
 Plug 'neoclide/coc.nvim',{'branch':'release'}
 call plug#end()
 
+let g:airline_theme = 'desertink'
 let g:airline_symbols_ascii = 1
-let g:airline#extensions#tabline#enabled = 0
-let g:airline_inactive_collapse=1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 0
 let g:airline_statusline_ontop = 0
 let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline_section_c = airline#section#create([''])
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#buffer_idx_format = {
+            \'0': '0 ',
+            \'1': '1 ',
+            \'2': '2 ',
+            \'3': '3 ',
+            \'4': '4 ',
+            \'5': '5 ',
+            \'6': '6 ',
+            \'7': '7 ',
+            \'8': '8 ',
+            \'9': '9 '}
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>0 <Plug>AirlineSelectTab0
+nmap q :bd<CR>
+
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+\ 'guifgs' : ['Red', 'Orange', 'Yellow', 'SeaGreen'],
+\ 'ctermfgs' : ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+\ 'separately': {
+\ '*' : {},
+\  }
+\}
+
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDToggleCheckAllLines = 1
+
 let g:indentLine_enabled = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
+
 let g:AutoPairs = {'<':'>','(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''"}
+
+let g:NERDTreeWinSize = 25
+let NERDTreeShowBookmarks=1
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
+let NERDTreeIgnore = ['.pyc$']
+let g:NERDTreeHidden = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+nnoremap ` :NERDTreeToggle<CR>
+
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:cpp_posix_standard = 1
 let g:cpp_concepts_highlight = 1
 let g:cpp_experimental_template_highlight = 1
-
-" Start NERDTree. If a file is specified, move the cursor to its window.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
 " Close the tab if NERDTree is the only window remaining in it.
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
 " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+            \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+
 
 let g:coc_global_extensions = ['coc-marketplace', 'coc-clangd', 'coc-clang-format-style-options', 'coc-cmake', 'coc-pyright']
+
 "Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
@@ -141,25 +190,30 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 " Use <c-space> to trigger completion.
 if has('nvim')
-  inoremap <silent><expr> <c-o> coc#refresh()
+  inoremap <silent><expr> <c-space> coc#refresh()
 else
-  inoremap <silent><expr> <c-o> coc#refresh()
+  inoremap <silent><expr> <c-space> coc#refresh()
 endif
+
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nnoremap <silent> <c-[> <Plug>(coc-diagnostic-prev)
-nnoremap <silent> <c-]> <Plug>(coc-diagnostic-next)
+nnoremap <silent> <c-.> <Plug>(coc-diagnostic-prev)
+nnoremap <silent> <c-,> <Plug>(coc-diagnostic-next)
+
 " GoTo code navigation.
 nnoremap <silent> gd <Plug>(coc-definition)
 nnoremap <silent> gy <Plug>(coc-type-definition)
 nnoremap <silent> gi <Plug>(coc-implementation)
 nnoremap <silent> gr <Plug>(coc-references)
+
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
@@ -171,6 +225,7 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
+
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " Symbol renaming.

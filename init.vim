@@ -5,7 +5,6 @@ syntax on	"语法高亮
 syntax enable
 set ambiwidth=double
 set showmatch
-set lazyredraw
 set termguicolors  "真彩色
 colorscheme monokai
 set encoding=utf-8	"编码
@@ -89,6 +88,9 @@ Plug 'Yggdroot/indentLine'
 Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
 Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'preservim/tagbar'
 Plug 'mhinz/vim-startify'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'preservim/nerdcommenter'
@@ -100,6 +102,7 @@ call plug#end()
 
 let g:airline_theme = 'desertink'
 let g:airline_symbols_ascii = 1
+let g:airline_powerline_fonts = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 0
 let g:airline_statusline_ontop = 0
@@ -136,6 +139,7 @@ let g:rainbow_conf = {
 \ 'ctermfgs' : ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
 \ 'separately': {
 \ '*' : {},
+\ 'vim' : 0,
 \  }
 \}
 
@@ -154,13 +158,19 @@ let g:AutoPairs = {'<':'>','(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '
 
 let g:NERDTreeWinSize = 25
 let NERDTreeShowBookmarks=1
-let g:NERDTreeDirArrowExpandable = '+'
-let g:NERDTreeDirArrowCollapsible = '-'
+let g:NERDTreeDirArrowExpandable = '▶'
+let g:NERDTreeDirArrowCollapsible = '▼'
 let NERDTreeIgnore = ['.pyc$']
 let g:NERDTreeHidden = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-nnoremap ` :NERDTreeToggle<CR>
+nnoremap <F3> :NERDTreeToggle<CR>
+
+nnoremap <F4> :TagbarToggle<CR>
+let g:tagbar_width=25
+
+let g:NERDTreeGitStatusUseNerdFonts = 1
+let g:NERDTreeGitStatusConcealBrackets = 1
 
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1

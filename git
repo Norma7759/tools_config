@@ -1,4 +1,4 @@
-There are three configuration files for the git:
+here are three configuration files for the git:
 1. /etc/gitconfig---for the system	use --system
 2. ~/.gitconfig---for the user		use --global
 3. .git/config---for the local directory	use --local
@@ -47,5 +47,6 @@ git remote show remote
 git remote rename
 git remote remove
 
+git reset --hard origin/master
 
 git tag	#show tags

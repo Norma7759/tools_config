@@ -139,7 +139,6 @@ let g:rainbow_conf = {
 \ 'ctermfgs' : ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
 \ 'separately': {
 \ '*' : {},
-\ 'vim' : 0,
 \  }
 \}
 
@@ -169,8 +168,23 @@ nnoremap <F3> :NERDTreeToggle<CR>
 nnoremap <F4> :TagbarToggle<CR>
 let g:tagbar_width=25
 
-let g:NERDTreeGitStatusUseNerdFonts = 1
+let g:NERDTreeGitStatusUseNerdFonts = 0
 let g:NERDTreeGitStatusConcealBrackets = 1
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'✹',
+                \ 'Staged'    :'✚',
+                \ 'Untracked' :'✭',
+                \ 'Renamed'   :'➜',
+                \ 'Unmerged'  :'═',
+                \ 'Deleted'   :'✖',
+                \ 'Dirty'     :'✗',
+                \ 'Ignored'   :'☒',
+                \ 'Clean'     :'✔︎',
+                \ 'Unknown'   :'?',
+                \ }
+
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1

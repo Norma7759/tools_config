@@ -6,7 +6,6 @@ syntax enable
 set ambiwidth=double
 set showmatch
 set termguicolors  "真彩色
-colorscheme monokai
 set encoding=utf-8	"编码
 set fenc=utf-8
 set nocompatible	"不兼容vi
@@ -25,11 +24,11 @@ set cursorcolumn
 set laststatus=0
 set ruler	"实时位置
 set hlsearch	"搜索匹配高亮
-set foldenable "启用折叠
+set foldenable      "启用折叠
 set incsearch	"增强搜索
 set ignorecase 	"大小写忽略
 set smartcase
-set foldmethod=syntax "代码折叠
+set foldmethod=indent "代码折叠
 set expandtab	"把tab替换为空格
 set shiftwidth=4	"替换成4个空格
 set autoindent	"自动缩进
@@ -52,7 +51,7 @@ if has("autocmd")
 endif
 "键位设置---------------------------------------
 let mapleader = "\<space>"
-nnoremap g<leader> G
+noremap g<leader> G
 nnoremap - <c-d>
 nnoremap = <c-u>
 
@@ -68,4 +67,7 @@ noremap <leader><right> :vertical resize+5<CR>
 nnoremap gh ^
 nnoremap gl $
 
-nmap q :bd<CR>
+nnoremap zz za
+nnoremap zh zR
+nnoremap zl zM
+

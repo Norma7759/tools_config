@@ -52,7 +52,7 @@ if has("autocmd")
 endif
 "键位设置---------------------------------------
 let mapleader = "\<space>"
-nnoremap g<leader> G
+noremap g<leader> G
 nnoremap - <c-d>
 nnoremap = <c-u>
 

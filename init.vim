@@ -25,11 +25,11 @@ set cursorcolumn
 set laststatus=0
 set ruler	"实时位置
 set hlsearch	"搜索匹配高亮
-set foldenable "启用折叠
+set foldenable      "启用折叠
 set incsearch	"增强搜索
 set ignorecase 	"大小写忽略
 set smartcase
-set foldmethod=syntax "代码折叠
+set foldmethod=indent "代码折叠
 set expandtab	"把tab替换为空格
 set shiftwidth=4	"替换成4个空格
 set autoindent	"自动缩进
@@ -67,6 +67,10 @@ noremap <leader><right> :vertical resize+5<CR>
 
 nnoremap gh ^
 nnoremap gl $
+
+nnoremap zz za
+nnoremap zh zR
+nnoremap zl zM
 
 "-------------------------------------------
 "vim-plug for neovim------------------------
@@ -171,17 +175,17 @@ let g:tagbar_width=25
 let g:NERDTreeGitStatusUseNerdFonts = 0
 let g:NERDTreeGitStatusConcealBrackets = 1
 let g:NERDTreeGitStatusIndicatorMapCustom = {
-                \ 'Modified'  :'✹',
-                \ 'Staged'    :'✚',
-                \ 'Untracked' :'✭',
-                \ 'Renamed'   :'➜',
-                \ 'Unmerged'  :'═',
-                \ 'Deleted'   :'✖',
-                \ 'Dirty'     :'✗',
-                \ 'Ignored'   :'☒',
-                \ 'Clean'     :'✔︎',
-                \ 'Unknown'   :'?',
-                \ }
+     \ 'Modified'  :'✹',
+     \ 'Staged'    :'✚',
+     \ 'Untracked' :'✭',
+     \ 'Renamed'   :'➜',
+     \ 'Unmerged'  :'═',
+     \ 'Deleted'   :'✖',
+     \ 'Dirty'     :'✗',
+     \ 'Ignored'   :'☒',
+     \ 'Clean'     :'✔︎',
+     \ 'Unknown'   :'?',
+     \ }
 
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)

@@ -56,9 +56,6 @@ noremap g<leader> G
 nnoremap - <c-d>
 nnoremap = <c-u>
 
-nnoremap sl :vs 
-nnoremap sj :sp 
-
 noremap <leader><up> :res -5<CR>
 noremap <leader><down> :res +5<CR>
 noremap <leader><left> :vertical resize-5<CR>
